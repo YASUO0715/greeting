@@ -9,25 +9,40 @@ class GreetController extends Controller
     public function greet($time)
     {
 
-        $hour =['朝','昼','夕方','夜'];
-        $hello = ['おはようございます','こんにちは','こんばんは','おやすみ'];
-
         if($time === 'morning'){
-            $time = $hour[0];
-            $hello = $hello[0];
+            $time = '朝';
+            $hello = 'おはようございます';
         }elseif($time === 'afternoon'){
-            $time = $hour[1];
-            $hello = $hello[1];
+            $time = '昼';
+            $hello = 'こんにちは';
         }elseif($time === 'evening'){
-            $time = $hour[2];
-            $hello = $hello[2];
+            $time = '夕方';
+            $hello = 'こんばんは';
         }else{
-            $time = $hour[3];
-            $hello = $hello[3] ;
+            $time = '夜';
+            $hello = 'おやすみ';
         }
 
         return view('comments.greets', ['time' => $time, 'hello' => $hello]);
-
-        
     }
+
+
+
+    public function freeword($msg)
+    {
+        return view('comments.freeword', [
+            'msg' => $msg]);
+    }
+
+
+    public function random($randomword)
+    {
+        $randomword = ["おはよう", "こんにちは", "こんばんわ", "おやすみ"];
+
+        $response = $randomword[array_rand($randomword)];
+
+        return view('comments.random', [
+            'response' => $response]);
+    }
+
 }

@@ -20,7 +20,6 @@ Route::get('/', function () {
 Route::get('comments/{time}',
 [App\Http\Controllers\GreetController::class, 'greet']);
 
+Route::get('/controller/freeword/{msg}', [App\Http\Controllers\GreetController::class, 'freeword']);
 
-Route::get('/controller/freeword/{msg}', [App\Http\Controllers\FreewordController::class, 'freeword']);
-
-Route::get('/controller/random/{randomword}', [App\Http\Controllers\RandomController::class, 'random']);
+Route::get('/controller/random/{randomword}', [App\Http\Controllers\Controller::class, 'random']);
