@@ -17,8 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('comments/{time}',
-[App\Http\Controllers\GreetController::class, 'greet']);
+Route::get(
+    'comments/{time}',
+    [App\Http\Controllers\GreetController::class, 'greet']
+);
 
 Route::get('/controller/freeword/{msg}', [App\Http\Controllers\GreetController::class, 'freeword']);
 
